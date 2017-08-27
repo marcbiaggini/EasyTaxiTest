@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EasyTest</string>
+    <string name="title_activity_main">My Places</string>
+    <string name="unknown_error_msg"> Desculpe! Houve um erro inesperado no applicativo.</string>
+    <string name="gps_message">Ative o GPS ver sua localização.</string>
+    <string name="delete_places">Quer remover dos favoritos?</string>
+    <string name="current_place">Current Place</string>
+</resources>
