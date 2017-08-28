@@ -5,12 +5,9 @@ import android.content.Context;
 import com.example.api.Helpers.ApiServices;
 import com.example.api.Models.Place;
 import com.example.api.Models.Places;
-import com.example.juanvilla.easytest.Activities.MainActivity;
 import com.example.juanvilla.easytest.R;
 import com.example.juanvilla.easytest.Utils.BaseActivity;
-import com.google.gson.Gson;
 
-import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
@@ -36,7 +33,9 @@ public class FavoritePlacesBean {
   @UiThread
   protected void setFavoritesPlaces(Places response){
     if(response!=null) {
-      setFavorites(response.getFavorites());
+      if(favorites.size()==0) {
+        setFavorites(response.getFavorites());
+      }
     }else {
       ((BaseActivity) context).showSnackbar(context.getString(R.string.unknown_error_msg));
     }
@@ -47,9 +46,7 @@ public class FavoritePlacesBean {
   }
 
   public void setFavorites(ArrayList<Place> favorites) {
-    if(favorites.size()>this.favorites.size()) {
       this.favorites.clear();
       this.favorites.addAll(favorites);
-    }
   }
 }
